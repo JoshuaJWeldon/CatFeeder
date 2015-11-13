@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cat Feeder Login</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="layout.css">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+        <form class="form-signin">
+            <header><h1 class="form-signin-heading">Log In</h1></header>
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="username" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+            <br>
+            <label for="inputCatName" class="sr-only">CatName</label>
+            <input type="catname" id="inputCatName" name="catname" class="form-control" placeholder="Cat's Name" required>
+            <br>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+
+        </form>
+        <form action="signup.html">
+            <button class="btn btn-sm btn-link btn-block" onClick="">Sign Up</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="validateform.js"></script>
+</body>
+</html>
