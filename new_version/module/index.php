@@ -38,7 +38,7 @@ if($_GET){
 			
 			$catrange    = 9;
 			$streamrange = $upperrange - $lowerrange;
-			$delta       = $streamrange / 9;
+			$delta       = $streamrange / $catrange;
 	
 			// Get cURL resource
 			$curl = curl_init();

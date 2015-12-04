@@ -47,7 +47,6 @@ class Connection{
     
     
     function finish(){
-        
         $this->conn->close();
     } 
      
