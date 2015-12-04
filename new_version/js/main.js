@@ -31,32 +31,3 @@ function parseEntries(response) {
     document.getElementById("entries").innerHTML = text;
 }
 
-/*
-
-var feedingsReq = new XMLHttpRequest();
-
-feedingsReq.onreadystatechange=function() {
-    if (feedingsReq.readyState == 4 && feedingsReq.status == 200) {
-        parseEntries(feedingsReq.responseText);
-    }
-}
-feedingsReq.open("GET", "php/feedings.php", true);
-feedingsReq.send();
-
-function parseEntries(response) {
-    var arr = JSON.parse(response);
-    var i;
-    var text = "";
-    for(i = 0; i < arr.length; i++) {
-        text += "<div class='row'><div class='col-sm-12 shadowbox img-rounded'> <p><b>" +
-            arr[i].date  +
-            "</b></p><p>"+
-            arr[i].entry +
-            "</p><p>"    +
-            arr[i].mood  +
-            "</p></div></div><br><br>";
-    }
-    document.getElementById("entries").innerHTML = text;
-}
-
-*/
