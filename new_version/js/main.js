@@ -5,23 +5,24 @@ else{
     document.getElementById("feed_msg").innerHTML = "";
 }
 
-var xmlhttp = new XMLHttpRequest();
-var url = "php/entries.php";
+var entriesReq = new XMLHttpRequest();
 
-xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        parseEntries(xmlhttp.responseText);
+entriesReq.onreadystatechange=function() {
+    if (entriesReq.readyState == 4 && entriesReq.status == 200) {
+        parseEntries(entriesReq.responseText);
     }
 }
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
+entriesReq.open("GET", "php/entries.php", true);
+entriesReq.send();
 
 function parseEntries(response) {
     var arr = JSON.parse(response);
     var i;
     var text = "";
     for(i = 0; i < arr.length; i++) {
-        text += "<div class='row'><div class='col-sm-12 shadowbox img-rounded'> <p>" +
+        text += "<div class='row'><div class='col-sm-12 shadowbox img-rounded'> <p><b>" +
+            arr[i].date  +
+            "</b></p><p>"+
             arr[i].entry +
             "</p><p>"    +
             arr[i].mood  +
@@ -30,3 +31,32 @@ function parseEntries(response) {
     document.getElementById("entries").innerHTML = text;
 }
 
+/*
+
+var feedingsReq = new XMLHttpRequest();
+
+feedingsReq.onreadystatechange=function() {
+    if (feedingsReq.readyState == 4 && feedingsReq.status == 200) {
+        parseEntries(feedingsReq.responseText);
+    }
+}
+feedingsReq.open("GET", "php/feedings.php", true);
+feedingsReq.send();
+
+function parseEntries(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var text = "";
+    for(i = 0; i < arr.length; i++) {
+        text += "<div class='row'><div class='col-sm-12 shadowbox img-rounded'> <p><b>" +
+            arr[i].date  +
+            "</b></p><p>"+
+            arr[i].entry +
+            "</p><p>"    +
+            arr[i].mood  +
+            "</p></div></div><br><br>";
+    }
+    document.getElementById("entries").innerHTML = text;
+}
+
+*/

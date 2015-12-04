@@ -19,9 +19,9 @@
   $conn->query($sql);
   
   while($row = $conn->nextRow()){
-      $emparray[] = $row;
+      $jsonArray[] = $row;
   }
-  echo json_encode($emparray);
+  echo json_encode($jsonArray);
   $conn->finish();
 
 ?>
