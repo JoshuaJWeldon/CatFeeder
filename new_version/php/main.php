@@ -24,9 +24,11 @@ $sql3 = "SELECT date FROM entries WHERE username = $username ORDER BY date";
 if($conn->query($sql3)){
     $row2 = $conn->nextRow();
     $row_mood = 0;
+    $row_date = null;
     while($row2){
         $row_mood = $row2['mood'];
-        $entry_moods.push($row_mood);
+        $row_date = $row2['date'];
+        $entry_moods.push(array($row_mood, $row_date));
         $_SESSION['entry_moods'] = $entry_moods;
     }
 
