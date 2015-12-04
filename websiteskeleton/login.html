@@ -13,31 +13,22 @@
 <body>
     <div class="container">
 
-        <form class="form-signin">
+        <form class="form-signin" action="php/login.php" enctype="application/x-www-form-urlencoded" method="post">
             <header><h1 class="form-signin-heading">Log In</h1></header>
             <label for="inputUsername" class="sr-only">Username</label>
-            <input type="username" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
-            <br>
-            <label for="inputCatName" class="sr-only">CatName</label>
-            <input type="catname" id="inputCatName" name="catname" class="form-control" placeholder="Cat's Name" required>
+            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" maxlength="30" required autofocus>
             <br>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" maxlength="30" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Log In</button>
 
         </form>
-        <form action="signup.html">
-            <button class="btn btn-sm btn-link btn-block" onClick="">Sign Up</button>
+        <form action="signup.html" class="text-center">
+            <button class="btn btn-sm btn-link" onClick="">Not registered? Sign Up</button>
         </form>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="validateform.js"></script>
 </body>
 </html>

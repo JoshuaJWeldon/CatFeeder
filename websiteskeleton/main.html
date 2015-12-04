@@ -31,7 +31,7 @@
 								<br><br>
                 <form name="journal_entry">
                     <label for="journalText" class="sr-only">Journal Entry</label>
-                    <textarea type="journalText" id="journalText" name="journalText"  placeholder="Journal Entry" rows="5" required autofocus></textarea>
+                    <textarea type="journalText" id="journalText" name="journalText"  placeholder="Journal Entry (500 Character limit)" rows="5" maxlength="500" required autofocus></textarea>
                     <br>
 
                     <label>
@@ -78,7 +78,7 @@
                         <input type="radio" name="cat_radio" value="1"   required="required"/>
                         <img src="CatEmoji\CryingCat.png" class="radio_cat">
                     </label>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit Entry</button>
+                    <button class="btn btn-lg btn-primary" type="submit">Submit Entry</button>
                 </form>
                 <br><br><br>
             </section>
