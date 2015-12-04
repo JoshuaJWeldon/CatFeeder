@@ -72,3 +72,7 @@ label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
 textarea{
     width: 100%;
 }
+
+.pull-right{
+    margin-right: 10px;
+}

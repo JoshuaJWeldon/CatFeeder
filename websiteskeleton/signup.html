@@ -11,29 +11,54 @@
 
 </head>
 <body>
-<div class="container">
+    <div class="container">
 
-    <form class="form-signin">
-        <header><h1 class="form-signin-heading">Registration</h1></header>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="username" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
-        <br>
-        <label for="inputCatName" class="sr-only">CatName</label>
-        <input type="catname" id="inputCatName" name="catname" class="form-control" placeholder="Cat's Name" required>
-        <br>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-        <label for="inputConfirm" class="sr-only">Confirm Password</label>
-        <input type="confirm" id="inputConfirm" name="confirm" class="form-control" placeholder="Confirm Password" required>
-        <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        <form class="form-signin" action="php/signup.php" enctype="application/x-www-form-urlencoded" method="post">
+            <header><h1 class="form-signin-heading">Registration</h1></header>
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+            <br>
+            <label for="inputCatName" class="sr-only">CatName</label>
+            <input type="text" id="inputCatName" name="catname" class="form-control" placeholder="Cat's Name" required>
+            <div class="br"><br></div>
+            <div class="divCheckPasswordMatch"></div>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <div class="br"><br></div>
+            <div class="divCheckPasswordMatch"></div>
+            <label for="inputConfirm" class="sr-only">Confirm Password</label>
+            <input type="password" id="inputConfirm" name="confirm" class="form-control" placeholder="Confirm Password" required>
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 
-    </form>
+        </form>
 
-</div>
+    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="validateform.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function checkPasswordMatch() {
+            var password = $("#inputPassword").val();
+            var confirmPassword = $("#inputConfirm").val();
+
+            if (password != confirmPassword && password.length != 0) {
+                $(".br").remove();
+                $(".divCheckPasswordMatch").html("Passwords do not match!");
+                $(".divCheckPasswordMatch").css('color', 'red');
+            }
+            else {
+                $(".br").remove();
+                $(".divCheckPasswordMatch").html("Passwords match.");
+                $(".divCheckPasswordMatch").css('color', 'green');
+            }
+
+        }
+
+        $(document).ready(function () {
+            $("#inputPassword").keyup(checkPasswordMatch);
+            $("#inputConfirm").keyup(checkPasswordMatch);
+        });
+    </script>
 </body>
 </html>
