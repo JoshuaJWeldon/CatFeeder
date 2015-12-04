@@ -7,6 +7,8 @@
   $catname  = "";
   $ip_addr  = "";
   
+  session_start();
+  
   if(!empty($_POST)){
       if(!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['catname']) && !empty($_POST['ip_addr'])){
           $username = $_POST['username'];
