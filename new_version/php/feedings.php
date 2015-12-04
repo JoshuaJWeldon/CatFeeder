@@ -15,7 +15,7 @@
   }
   
   $username = $_SESSION['username'];
-  $sql      = "Select * From feedings Where username='$username'";
+  $sql      = "Select * From feedings Where username='$username' ORDER BY date DESC";
   $conn->query($sql);
   
   while($row = $conn->nextRow()){
