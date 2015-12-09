@@ -11,7 +11,6 @@ var entriesReq = new XMLHttpRequest();
 entriesReq.onreadystatechange=function() {
   
     if (entriesReq.readyState == 4 && entriesReq.status == 200) {
-        console.log("here");
         parseEntries(entriesReq.responseText);
         
     }
