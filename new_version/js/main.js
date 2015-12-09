@@ -20,6 +20,7 @@ entriesReq.send();
 
 function parseEntries(response) {
     var arr   = JSON.parse(response);
+    var catImg = ['CatEmoji\\CryingCat.png','CatEmoji\\PoutingCat.png','CatEmoji\\WearyCat.png','CatEmoji\\SmirkingCat.png','CatEmoji\\SmilingCat.png','CatEmoji\\GrinningCat.png','CatEmoji\\HappyTearsCat.png','CatEmoji\\KissingCat.png','CatEmoji\\HeartEyesCat.png'];
     var text  = "";
     var i;
     for(i = 0; i < arr.length; i++) {
@@ -27,9 +28,9 @@ function parseEntries(response) {
             arr[i].date  +
             "</b></p><p>"+
             arr[i].entry +
-            "</p><p>"    +
-            arr[i].mood  +
-            "</p></div></div><br><br>";
+            "</p><p><img src='" +
+            catImg[parseInt(arr[i].mood)]  +
+            "' width=5%></p></div></div><br><br>";
     }
     document.getElementById("entries").innerHTML = text;
 }
@@ -47,8 +48,7 @@ moodReq.send();
 function parsemood(response) {
     var arr    = JSON.parse(response);
     var mood   = getMood(arr[0].date.split(/[- :]/));
-    var catImg = ['CatEmoji\\CryingCat.png','CatEmoji\\PoutingCat.png','CatEmoji\\WearyCat.png','CatEmoji\\SmirkingCat.png','CatEmoji\\SmilingCat.png','CatEmoji\\GrinningCat.png','CatEmoji\\HappyTearsCat.png','CatEmoji\\KissingCat.png','CatEmoji\\HeartEyesCat.png']
-    //var catImg = ['CatEmoji\\HeartEyesCat.png','CatEmoji\\KissingCat.png','CatEmoji\\HappyTearsCat.png','CatEmoji\\GrinningCat.png','CatEmoji\\SmilingCat.png','CatEmoji\\SmirkingCat.png','CatEmoji\\WearyCat.png','CatEmoji\\PoutingCat.png','CatEmoji\\CryingCat.png'];
+    var catImg = ['CatEmoji\\CryingCat.png','CatEmoji\\PoutingCat.png','CatEmoji\\WearyCat.png','CatEmoji\\SmirkingCat.png','CatEmoji\\SmilingCat.png','CatEmoji\\GrinningCat.png','CatEmoji\\HappyTearsCat.png','CatEmoji\\KissingCat.png','CatEmoji\\HeartEyesCat.png'];
     document.getElementById("mood").innerHTML = '<img src="'+ catImg[mood] +'" class="center-block" id="face" alt="Heart Eyes Cat Face">';
     
 }
