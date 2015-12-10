@@ -20,6 +20,10 @@ entriesReq.send();
 
 function parseEntries(response) {
     var arr   = JSON.parse(response);
+    if(arr.length == 0){
+      document.getElementById("entries").innerHTML = '<p> No journal entries yet, give it a try.</p>';
+      return;
+    }
     var catImg = ['CatEmoji\\CryingCat.png','CatEmoji\\PoutingCat.png','CatEmoji\\WearyCat.png','CatEmoji\\SmirkingCat.png','CatEmoji\\SmilingCat.png','CatEmoji\\GrinningCat.png','CatEmoji\\HappyTearsCat.png','CatEmoji\\KissingCat.png','CatEmoji\\HeartEyesCat.png'];
     var text  = "";
     var i;
@@ -47,9 +51,18 @@ moodReq.send();
 
 function parsemood(response) {
     var arr    = JSON.parse(response);
+    if(!arr){
+      document.getElementById("mood").innerHTML = '<img src="CatEmoji\\TryMe.png" class="center-block" id="face">';
+      return;
+    }
     var mood   = getMood(arr[0].date.split(/[- :]/));
     var catImg = ['CatEmoji\\CryingCat.png','CatEmoji\\PoutingCat.png','CatEmoji\\WearyCat.png','CatEmoji\\SmirkingCat.png','CatEmoji\\SmilingCat.png','CatEmoji\\GrinningCat.png','CatEmoji\\HappyTearsCat.png','CatEmoji\\KissingCat.png','CatEmoji\\HeartEyesCat.png'];
-    document.getElementById("mood").innerHTML = '<img src="'+ catImg[mood] +'" class="center-block" id="face" alt="Heart Eyes Cat Face">';
+    if(arr.length == 0){
+      document.getElementById("mood").innerHTML = '<img src="CatEmoji\\TryMe.png" class="center-block" id="face">';
+    }
+    else{
+      document.getElementById("mood").innerHTML = '<img src="'+ catImg[mood] +'" class="center-block" id="face">';
+    }
     
 }
 

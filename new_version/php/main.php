@@ -36,7 +36,7 @@ if($conn->query($sql3)){
 }
 
 if(!empty($_POST)){
-    if(!empty($_POST['cat_radio']) && !empty($_POST['journalText'])){
+    if(!empty($_POST['journalText'])){
         $cat_radio = $_POST['cat_radio'];
         $journal = $_POST['journalText'];
         $sql = "Insert Into entries (username, entry, mood) Values ('$username', '$journal', '$cat_radio')";

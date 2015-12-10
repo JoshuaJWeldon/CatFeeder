@@ -46,14 +46,7 @@ function parseChartEntries(response) {
 		tempArray = [];
 		var moodDate = "";
 		moodDate = arr[i].date;
-		console.log('date:');
-		console.log(String(moodDate));
-		console.log('year:');
-		console.log(String(parseInt(moodDate.substring(0,4))));
 		moodDate = Date.UTC(parseInt(moodDate.substring(0,4)), (parseInt(moodDate.substring(5,7)) - 1), (parseInt(moodDate.substring(8,10)) + 1), parseInt(moodDate.substring(11, 13)), parseInt(moodDate.substring(14, 16)), parseInt(moodDate.substring(17, 19)));
-		console.log('utc date:');
-		console.log(String(moodDate));
-
 		tempArray[0] = moodDate;
 		tempArray[1] = parseInt(arr[i].mood);
 		entryArray[i] = tempArray;
